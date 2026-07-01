@@ -1,6 +1,6 @@
-# Bootstrap Icons Extension For Quarto
+# Simple Icons Extension For Quarto
 
-This extension provides support including icons provided by [SimpleIcons](https://simpleicons.org). Icons can be used in HTML documents only.
+A Quarto shortcode extension for embedding [Simple Icons](https://simpleicons.org) SVG brand icons inline in HTML documents. Icons are fetched from the Simple Icons CDN at render time and inlined directly into the HTML output, so they work correctly with `self-contained: true`.
 
 ## Installing
 
@@ -13,86 +13,82 @@ If you're using version control, you will want to check in this directory.
 
 ## Using
 
-To embed an icon, use the {{< bi >}} shortcode. For example:
+To embed an icon, use the `{{< si >}}` shortcode with the icon's slug name. For example:
 
 ```
-{{< bi alarm >}}
+{{< si github >}}
 
-{{< bi alarm-fill >}}
+{{< si python >}}
 
-{{< bi balloon-heart  size=5em color=#2ecaf9 >}}
+{{< si docker size=2em color=#2496ED >}}
 
-{{< bi emoji-sunglasses  size=5em color=#2ecaf9 label="Proud Happy Face" >}}
-
+{{< si slack size=2em label="Slack" >}}
 ```
 
-This extension provides support for over 2,000 bootstrap icons. You can browse all of the available icons here:
+The slug is the lowercase identifier used by Simple Icons (the same string that appears in the CDN URL `https://simpleicons.org/icons/{slug}.svg`). Browse all 3,000+ available icons and their slugs at:
 
 [https://simpleicons.org](https://simpleicons.org)
 
-### icons color
+### Icon color
 
-To specify a color for icons, you can use css [named colors](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#named_colors) (i.e. `red`, `cornflowerblue` etc), [RGB color model](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#rgb_color_model) or [HSL color model](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#hsl_color_model).
-
-The complete list of available named color is [here](https://developer.mozilla.org/en-US/docs/Web/CSS/named-color).
+To specify a fill color, use the `color` argument. You can use CSS [named colors](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#named_colors), hex values, or the `rgb()`/`hsl()` functions.
 
 ```
-{{< si github color=red >}}
+{{< si github color=#181717 >}}
 
-{{< si python color=lightseagreen >}}
+{{< si python color=#3776AB >}}
+
+{{< si javascript color=gold >}}
 ```
 
-**Note that, when specifying color with either RGB or HSL model, DO NOT PUT SPACE BETWEEN VALUES. That is, do not write as `rgb(232, 96, 51)`, instead write as `rgb(232,96,51)`, otherwise it will not work.**
+**Note: when using `rgb()` or `hsl()`, do not include spaces between values — write `rgb(232,96,51)`, not `rgb(232, 96, 51)`.**
 
-### icon sizing
+If no `color` is specified the icon inherits the SVG's default fill (typically black).
 
-You can actually use any size in `px`, `em`, `rem`, `vw`, `vh` css units.
+### Icon sizing
 
-```
-{{< bi incognito size=37px >}}
-
-{{< bi person-plus-fill size=3.1rem >}}
-
-{{< bi postcard-heart size=2.7em >}}
-
-{{< bi reddit size=9.8vw >}}
-
-{{< bi slack size=7.6vh >}}
+Any CSS length unit is accepted: `px`, `em`, `rem`, `vw`, `vh`.
 
 ```
+{{< si rust size=3em >}}
 
-### class
+{{< si typescript size=48px >}}
 
-It is also possible to assign css class using `class` argument so that multiple icons can be styled together.
+{{< si linux size=2.5rem >}}
+```
+
+The default size is `1em` (scales with surrounding text).
+
+### CSS class
+
+Assign a CSS class with the `class` argument to style multiple icons together.
 
 ```{css}
-.styled {
-  color: red;
+.brand {
+  fill: steelblue;
 }
 ```
 
 ```
-{{< bi windows class=styled >}}
+{{< si github class=brand >}}
 
-{{< bi ubuntu  class=styled >}}
+{{< si python class=brand >}}
 
-{{< bi terminal-fill class=styled >}}
+{{< si javascript class=brand >}}
 ```
 
 ### Accessibility
 
-If the icon is being used in place of some text, just add some descriptive text in the label argument.
+If the icon conveys meaning (i.e. it is not purely decorative), provide a description via `label`. This replaces the icon's default `<title>` element and preserves `role="img"` for screen readers. Decorative icons (no `label`) are automatically marked with `aria-hidden="true"`.
 
 ```
-{{< bi hand-thumbs-up-fill  size=7em color=cornflowerblue label="Thumbs up" >}}
+{{< si github size=2em label="GitHub repository" >}}
 ```
 
 ## Example
 
-Here is the source code for a minimal example: [example.qmd](example.qmd).
-
-The output of `example.qmd` in [HTML](https://shafayetshafee.github.io/bsicons/example_html.html) format and in [revealjs](https://shafayetshafee.github.io/bsicons/example.html) format.
+See [example_simpleicons.qmd](example_simpleicons.qmd) for a working example.
 
 ## Acknowledgement
 
-The code for this extension is adapted from the [fontawesome](https://github.com/quarto-ext/fontawesome).
+The structure of this extension is adapted from the [bsicons](https://github.com/shafayetShafee/bsicons) Quarto extension by Shafayet Khan Shafee, which was in turn adapted from [fontawesome](https://github.com/quarto-ext/fontawesome).
