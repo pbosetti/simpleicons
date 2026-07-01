@@ -1,0 +1,38 @@
+---
+title: "simpleicons Example (HTML)"
+format:
+  html:
+    self-contained: true
+---
+
+## Basic usage
+
+{{< si github >}}
+{{< si python >}}
+{{< si javascript >}}
+
+## Custom size
+
+{{< si rust size=3em >}}
+{{< si typescript size=48px >}}
+
+## Custom color
+
+{{< si github color=#181717 >}}
+{{< si python color=#3776AB >}}
+{{< si javascript color=#F7DF1E >}}
+
+## Brand colors with size
+
+{{< si docker size=2em color=#2496ED >}}
+{{< si kubernetes size=2em color=#326CE5 >}}
+{{< si linux size=2em color=#FCC624 >}}
+
+## Accessible label
+
+{{< si github size=2em label="GitHub" >}}
+{{< si slack size=2em label="Slack" >}}
+
+## Extra CSS class
+
+{{< si neovim size=2em class="my-icon" >}}

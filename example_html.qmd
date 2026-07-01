@@ -1,0 +1,81 @@
+---
+title: "bsicons Example"
+author: Shafayet Khan Shafee
+date: last-modified
+date-format: "DD MMM, YYYY"
+format: 
+  html:
+    code-tools: true
+self-contained: true
+engine: knitr
+---
+
+> View the source code by clicking `</> Code` on the top right corner
+
+## Using Bootstrap Icons
+
+{{< bi alarm >}}
+
+{{< bi alarm-fill >}}
+
+{{< bi alarm  size=5em color=#2ecaf9 >}}
+
+{{< bi emoji-sunglasses  size=5em color=#2ecaf9 label="Proud Happy Face" >}}
+
+
+## icon color
+
+{{< bi alarm-fill color=red >}}
+
+{{< bi twitch color=lightseagreen >}}
+
+{{< bi twitter color=cornflowerblue >}}
+
+{{< bi windows color=#E86033 >}}
+
+{{< bi ubuntu color=rgb(232,96,51) >}}
+
+{{< bi terminal-fill color=rgba(232,96,51,1) >}}
+
+{{< bi stars color=hsl(15,80%,56%) >}}
+
+{{< bi spotify color=hsla(15,80%,56%,360) >}}
+
+
+## icon sizing
+
+
+{{< bi incognito size=37px >}}
+
+{{< bi person-plus-fill size=3.1rem >}}
+
+{{< bi postcard-heart size=2.7em >}}
+
+{{< bi reddit size=9.8vw >}}
+
+{{< bi slack size=7.6vh >}}
+
+
+## using class
+
+We use the class `styled` to color all icons in red.
+
+
+```{css, filename="css code"}
+.styled {
+  color: red;
+}
+```
+
+{{< bi windows class=styled >}}
+
+{{< bi ubuntu  class=styled >}}
+
+{{< bi terminal-fill class=styled >}}
+
+
+## That's it
+
+{{< bi hand-thumbs-up-fill  size=7em color=cornflowerblue label="Thumbs up" >}}
+
+
